@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uttam Medicals</title>
+    <style>
+    
+        #medicineListTextarea {
+            display: none; 
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Uttam Medicals</h1>
+
+    <hr>
+
+    <h2>About Us</h2>
+    <p>We are your friendly local pharmacy. We have many medicines to help you feel better.</p>
+
+    <hr>
+
+    <h2>Our Medicines</h2>
+    <p>Enter a medicine name below to know what it is used for.</p>
+    
+    <!-- Search Input -->
+    <input type="text" id="searchInput" placeholder="e.g., Paracetamol" oninput="findMedicine()">
+    
+    <!-- This is where the search result will be shown -->
+    <p id="medicineInfo"></p>
+
+    <hr>
+
+    <h2>Home Delivery</h2>
+    <p>Fill in your details to request a home delivery.</p>
+
+    <form action="mailto:orders@uttammedicals.com" method="post" enctype="text/plain">
+        
+        <p>
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name">
+        </p>
+
+        <p>
+            <label for="address">Your Address:</label><br>
+            <input type="text" id="address" name="address">
+        </p>
+
+        <p>
+            <!-- This checkbox will show the text box when clicked -->
+            <input type="checkbox" id="showMedicineBox" onchange="toggleMedicineBox()">
+            <label for="showMedicineBox"><strong>I need to specify my medicines</strong></label>
+        </p>
+        <p id="medicineListTextarea">
+            <label for="medicines">List the medicines you need:</label><br>
+            <textarea id="medicines" name="medicines" rows="4" cols="40"></textarea>
+        </p>
+
+        <br>
+        <input type="submit" value="Request Delivery">
+    </form>
+
+    <hr>
+
+    <h2>Contact Details</h2>
+    <p><strong>Address:</strong> 500, Rm Nagar, Bangalore</p>
+    <p><strong>Phone:</strong> +91 98765 43210</p>
+    <p><strong>Email:</strong> info@uttammedicals.com</p>
+
+    <hr>
+    <!-- This is the JavaScript to make the new features work -->
+    <script>
+        // --- Function for the Home Delivery Checkbox ---
+        function toggleMedicineBox() {
+            // Get the checkbox and the text box area
+            var checkBox = document.getElementById("showMedicineBox");
+            var textArea = document.getElementById("medicineListTextarea");
+
+            // If the checkbox is checked, show the text box
+            if (checkBox.checked == true) {
+                textArea.style.display = "block";
+            } else {
+                // If not checked, hide it
+                textArea.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
